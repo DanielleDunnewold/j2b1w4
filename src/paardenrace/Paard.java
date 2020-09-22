@@ -5,12 +5,11 @@ package paardenrace;
  *
  * @author Martijn van der Bruggen
  * (c) Hogeschool van Arnhem en Nijmegen
- * @version alpha release
+ * @version updated version by: Danielle Dunnewold
  */
 
 import java.awt.*;
 import java.util.Random;
-
 public class Paard {
 
     private int x, paardNummer; //te lezen als x en y positie
@@ -31,7 +30,7 @@ public class Paard {
         this.paardNummer = ++aantal;
     }
 
-    /* Constructor voor Paard overloaded*/
+    /** Constructor voor Paard overloaded*/
     Paard(String naam, Color kleur, Image plaatje) {
         this (naam);
         this.kleur = kleur;
@@ -65,6 +64,15 @@ public class Paard {
     public void loop() {
         this.x = this.x + random.nextInt(11);
         System.out.println(this.naam + " is op positie " +this.x);
+    }
+
+    /** Pauzeer gedurende x millisecondes*/
+    public void pauzeer(int msec) {
+        try {
+            Thread.sleep(msec);
+        } catch (InterruptedException e) {
+            System.out.println("Pauze interruptie");
+        }
     }
 }
 
