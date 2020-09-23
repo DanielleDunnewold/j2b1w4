@@ -5,7 +5,7 @@ package paardenrace;
  *
  * @author Martijn van der Bruggen
  * (c) Hogeschool van Arnhem en Nijmegen
- * @version updated version by: Danielle Dunnewold
+ * @version Alpha
  */
 
 import java.awt.*;
@@ -66,13 +66,6 @@ public class Paard {
         System.out.println(this.naam + " is op positie " +this.x);
     }
 
-    /** Pauzeer gedurende x millisecondes*/
-    public void pauzeer(int msec) {
-        try {
-            Thread.sleep(msec);
-        } catch (InterruptedException e) {
-            System.out.println("Pauze interruptie");
-        }
-    }
+
 }
 
