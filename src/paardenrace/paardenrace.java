@@ -1,4 +1,12 @@
 package paardenrace;
+// te doen
+// documentatie
+// kijken of het korter kan
+// labels erbij schrijven welk wat paard is
+// paarden verschillende kleurtjes geven
+// uitzoeken verschillende treads
+
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +25,9 @@ public class paardenrace extends JFrame implements ActionListener {
       paardenrace frame =new paardenrace();
       frame.setSize(500,500);
       frame.createGUI();
+      frame.setTitle("paardenrace");
       frame.setVisible(true);
+
    }
 
    private void createGUI(){
@@ -35,8 +45,6 @@ public class paardenrace extends JFrame implements ActionListener {
       button.setPreferredSize(new Dimension(450,50));
       window.add(button);
       button.addActionListener(this);
-
-
    }
 
 
@@ -45,7 +53,7 @@ public class paardenrace extends JFrame implements ActionListener {
       Graphics paper = panel.getGraphics();
       paper.clearRect(0,0,450,400);
       paper.setColor(Color.black);
-      paper.drawLine(350,0,350,450);
+      paper.drawLine(398,0,398,450);
 
       while (winner==Boolean.FALSE) {
       // beeld paard 1 af op het scherm en laat hem lopen
@@ -59,7 +67,7 @@ public class paardenrace extends JFrame implements ActionListener {
       paard2.loop();
 
       // pauzeert alles
-      pauzeer(10);
+      pauzeer(20);
 
       //checkt of er een winner is
       checkwinner();}
