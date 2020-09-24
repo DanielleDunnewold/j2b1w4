@@ -1,6 +1,7 @@
 package paardenrace;
 // te doen
 // uitzoeken verschillende treads
+// als dit niet lukt stukje weghalen
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,6 +48,10 @@ public class paardenrace extends JFrame implements ActionListener {
     */
    public void actionPerformed(ActionEvent e) {
       Graphics paper = panel.getGraphics();
+
+      // dit is zodat je hem opnieuw kan opstarten als die bezig is (als ik multithread kan laten werken geen idee wat er gebeurt)
+      paper.clearRect(0,0,450,400);
+      paper.setColor(Color.black);
 
       // tekent de finish lijn en schrijft de tekst erbij
       paper.drawLine(390,0,390,450);
