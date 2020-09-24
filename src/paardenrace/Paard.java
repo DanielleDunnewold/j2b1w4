@@ -6,6 +6,7 @@ package paardenrace;
  * @author Martijn van der Bruggen
  * (c) Hogeschool van Arnhem en Nijmegen
  * @version Alpha
+ * Een overloaded constructor toegevoegd door: Danielle.
  */
 
 import java.awt.*;
@@ -35,6 +36,12 @@ public class Paard {
         this (naam);
         this.kleur = kleur;
         this.plaatje = plaatje;
+    }
+
+    /**Constuctor voor Paard overloaded met kleur aangeven (toegevoegt door Danielle)*/
+    Paard(String naam, Color kleur){
+        this(naam);
+        this.kleur =kleur;
     }
 
     public String getNaam() {

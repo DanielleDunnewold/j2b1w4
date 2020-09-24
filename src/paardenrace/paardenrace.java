@@ -1,12 +1,6 @@
 package paardenrace;
 // te doen
-// documentatie
-// kijken of het korter kan
-// labels erbij schrijven welk wat paard is
-// paarden verschillende kleurtjes geven
 // uitzoeken verschillende treads
-
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,10 +9,9 @@ import java.awt.event.ActionListener;
 
 public class paardenrace extends JFrame implements ActionListener {
    private JPanel panel;
-
    private Boolean winner = Boolean.FALSE;
-   private Paard paard1= new Paard("paard 1");
-   private Paard paard2 = new Paard("paard 2");
+   private Paard paard1= new Paard("paard 1",Color.blue);
+   private Paard paard2 = new Paard("paard 2",Color.red);
    private int finish=350;
 
    public static void main(String[] args) {
@@ -26,10 +19,11 @@ public class paardenrace extends JFrame implements ActionListener {
       frame.setSize(500,500);
       frame.createGUI();
       frame.setTitle("paardenrace");
-      frame.setVisible(true);
+      frame.setVisible(true); }
 
-   }
-
+   /**
+    * creates the GUI
+    */
    private void createGUI(){
       setDefaultCloseOperation(EXIT_ON_CLOSE);
       Container window =getContentPane();
@@ -47,13 +41,17 @@ public class paardenrace extends JFrame implements ActionListener {
       button.addActionListener(this);
    }
 
-
+   /**
+    * het afspelen van de paardenrace als de knop wordt ingedrukt
+    * @param e knop wordt in gedrukt
+    */
    public void actionPerformed(ActionEvent e) {
-
       Graphics paper = panel.getGraphics();
-      paper.clearRect(0,0,450,400);
-      paper.setColor(Color.black);
-      paper.drawLine(398,0,398,450);
+
+      // tekent de finish lijn en schrijft de tekst erbij
+      paper.drawLine(390,0,390,450);
+      paper.drawString("Paard 1", 50,30);
+      paper.drawString("Paard 2",50,150);
 
       while (winner==Boolean.FALSE) {
       // beeld paard 1 af op het scherm en laat hem lopen
@@ -74,11 +72,12 @@ public class paardenrace extends JFrame implements ActionListener {
 
    }
 
+   /** checkt of er een winner is en sluit het spel af */
    public void checkwinner() {
       if (paard1.getAfstand() >= finish) {
          JOptionPane.showMessageDialog(null,paard1.getNaam()+" heeft gewonnen");
-         winner = Boolean.TRUE;
-         dispose();
+         winner = Boolean.TRUE;  // stopt de while loop
+         dispose();     // sluit het scherm af
       }
       if (paard2.getAfstand() >= finish){
          JOptionPane.showMessageDialog(null,paard2.getNaam()+" heeft gewonnen");
@@ -87,7 +86,7 @@ public class paardenrace extends JFrame implements ActionListener {
       }
    }
 
-   /** Pauzeer gedurende x millisecondes*/
+   /** Pauzeer gedurende x millisecondes (gekopieerd van de onderwijsonline)*/
    public void pauzeer(int msec) {
       try {
          Thread.sleep(msec);
